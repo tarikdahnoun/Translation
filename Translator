@@ -1,0 +1,17 @@
+from googletrans import Translator
+
+translator = Translator()
+
+
+def trans_pronun(statement, base_language, target_language):
+    translation = translator.translate(statement, src=base_language, dest=target_language).text
+    pronunciation = translator.translate(statement, src=base_language, dest=target_language).pronunciation
+    return translation, pronunciation
+
+
+statement = 'I like eggs'
+base = 'english'
+target = 'spanish'
+translation, pronunciation = trans_pronun(statement, base, target)
+print("Translation: ", translation)
+print("Pronunciation", pronunciation)
